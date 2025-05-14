@@ -14,16 +14,15 @@
     }
 
     header {
-      background-color: #1a0000;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 2px solid #440000;
+      width: 100%;
+      height: auto;
     }
 
-    header h1 {
-      color: #ff4c4c; 
-      font-size: 2.5rem;
-      margin: 0;
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 2px solid #440000;
     }
 
     main {
@@ -74,22 +73,17 @@
       background-color: #0e0e0e;
       border-top: 1px solid #220000;
     }
-
-    .gothic-font {
-      font-family: 'Roboto', sans-serif;
-    }
   </style>
 </head>
 <body>
   <header>
-    <h1>SERRA NEGRA: A SEMANA DA SOMBRA</h1>
-    <p class="gothic-font" style="color: #aaa;">Você tem 7 dias. Sobreviva... ou será engolido pela névoa.</p>
+    <img src="header4.png" alt="Serra Negra: A Semana da Sombra">
   </header>
 
   <main>
     <aside>
       <div class="comandos">
-        <h2 class="gothic-font" style="color: #ff4c4c;">⚙️ Comandos úteis durante a campanha</h2>
+        <h2 style="color: #ff4c4c;">⚙️ Comandos úteis durante a campanha</h2>
         <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; color: #ccc; padding-top: 10px;">
           <div>- <strong>Mostre habilidades</strong><br/><span style="color:#888;">Mostra suas habilidades atuais e tempo de recarga.</span></div>
           <div>- <strong>Mostre inventário</strong><br/><span style="color:#888;">Mostra seu inventário atual.</span></div>
@@ -98,7 +92,7 @@
         </div>
       </div>
       <div class="notas" style="margin-top: 20px; display: flex; flex-direction: column; align-items: center;">
-        <h2 class="gothic-font" style="color: #ff4c4c;">🕯️ Bloco de notas sombrio</h2>
+        <h2 style="color: #ff4c4c;">🕯️ Bloco de notas sombrio</h2>
         <textarea id="blocoNotas" placeholder="Escreva seus segredos, códigos ou qualquer coisa que achar importante..." style="width:100%; height:240px; padding:12px; background:#0d0d0d; color:#ccc; border:1px solid #333; border-radius:5px;"></textarea>
       </div>
     </aside>
@@ -117,7 +111,9 @@
   </main>
 
   <footer>
-    Jogo desenvolvido por SNIPE · Sistema oficial de RPG narrativo Serra Negra 7.0 · <a href="https://serra-negra-a-semana-da-sombra.fandom.com/pt-br/wiki/Serra_Negra:_A_Semana_da_Sombra_Wiki" target="_blank" style="color:#ff4c4c; text-decoration:none;">Acesse a Wiki</a> · <a href="https://chatgpt.com/g/g-681cf8c096a88191b1b16629e30d95cc-a-semana-da-sombra" target="_blank" style="color:#ff4c4c; text-decoration:none;">Versão GPT Plus</a>
+    Jogo desenvolvido por SNIPE · Sistema oficial de RPG narrativo Serra Negra 7.0 ·
+    <a href="https://serra-negra-a-semana-da-sombra.fandom.com/pt-br/wiki/Serra_Negra:_A_Semana_da_Sombra_Wiki" target="_blank" style="color:#ff4c4c; text-decoration:none;">Acesse a Wiki</a> ·
+    <a href="https://chatgpt.com/g/g-681cf8c096a88191b1b16629e30d95cc-a-semana-da-sombra" target="_blank" style="color:#ff4c4c; text-decoration:none;">Versão GPT Plus</a>
   </footer>
 </body>
 </html>
