@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Invocação de Barbaluss</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #0b0b0b;
+      color: #dcdcdc;
+      font-family: 'Cinzel', serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff4c4c;
+      text-shadow: 0 0 10px #440000;
+      margin-bottom: 50px;
+      animation: fadeInDown 2s ease-out;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 15px 40px;
+      border: 2px solid #ff4c4c;
+      background-color: transparent;
+      color: #ff4c4c;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    button:hover {
+      background-color: #ff4c4c;
+      color: #0b0b0b;
+      box-shadow: 0 0 20px #ff4c4c;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Serra Negra: A Semana da Sombra</h1>
+  <button onclick="invocar()">INVOCAR BARBALUSS</button>
+
+  <script>
+    function invocar() {
+      document.body.style.opacity = "0";
+      setTimeout(() => {
+        window.location.href = "jogo.html";
+      }, 600);
+    }
+  </script>
+</body>
+</html>
