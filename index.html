@@ -19,7 +19,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      animation: fadeIn 1.2s ease-out;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #preloader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #0b0b0b;
+      color: #ff4c4c;
+      font-size: 1.5rem;
+      font-family: 'Cinzel', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
     .conteudo {
       background-color: #1a0000;
       border: 2px solid #440000;
@@ -33,6 +54,7 @@
       justify-content: center;
       box-shadow: 0 0 40px #000;
     }
+
     h1 {
       font-size: 1.5rem;
       color: #ff4c4c;
@@ -40,6 +62,7 @@
       margin-bottom: 20px;
       text-shadow: 0 0 10px #440000;
     }
+
     .logo {
       width: 150px;
       height: 150px;
@@ -49,11 +72,13 @@
       box-shadow: 0 0 20px #440000;
       animation: pulse 4s ease-in-out infinite;
     }
+
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.05); opacity: 0.95; }
       100% { transform: scale(1); opacity: 1; }
     }
+
     button {
       font-size: 1.2rem;
       padding: 14px 36px;
@@ -63,21 +88,39 @@
       cursor: pointer;
       border-radius: 10px;
       transition: 0.3s;
+      margin-top: 10px;
     }
+
     button:hover {
       background-color: #ff4c4c;
       color: #0b0b0b;
       box-shadow: 0 0 20px #ff4c4c;
     }
+
+    @media (max-width: 768px) {
+      .conteudo {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 1.2rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="conteudo">
+  <div id="preloader">Invocando Barbaluss...</div>
+
+  <div class="conteudo" style="display:none;">
     <h1>VOCÊ TEM 7 DIAS. SOBREVIVA...<br>OU SERÁ ENGOLIDO PELA NÉVOA.</h1>
     <img src="barbaluss_logo_round.png" alt="Logo Barbaluss" class="logo">
+    <button onclick="document.getElementById('bgm').play()">🎵 Ativar Som</button>
     <button onclick="invocar()">INVOCAR BARBALUSS</button>
   </div>
+
+  <audio id="bgm" src="audio-tema-placeholder.mp3" loop></audio>
 
   <script>
     function invocar() {
@@ -86,6 +129,11 @@
         window.location.href = "jogo.html";
       }, 600);
     }
+
+    window.onload = function() {
+      document.getElementById('preloader').style.display = 'none';
+      document.querySelector('.conteudo').style.display = 'flex';
+    };
   </script>
 
 </body>
