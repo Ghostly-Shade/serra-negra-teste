@@ -19,7 +19,7 @@
       display: flex;
       overflow: hidden;
     }
-    .sidebar {
+    .sidebar, .rightbar {
       width: 240px;
       background: #1a0000;
       border-right: 2px solid #440000;
@@ -28,33 +28,35 @@
       flex-direction: column;
       justify-content: space-between;
     }
-    .sidebar a {
+    .rightbar {
+      border-left: 2px solid #440000;
+      border-right: none;
+    }
+    .sidebar a, .rightbar a {
       color: #dcdcdc;
       text-decoration: none;
       margin-bottom: 10px;
     }
-    .sidebar a:hover {
+    .sidebar a:hover, .rightbar a:hover {
       color: #ff4c4c;
     }
     .container {
       flex: 1;
       display: flex;
-      flex-direction: column;
-      padding: 20px;
-      background: url('serra_negra_fundo_1920x1080.png') center center / cover no-repeat fixed;
-      position: relative;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      padding: 40px 0;
     }
-    .overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0,0,0,0.75);
-      z-index: 0;
-    }
-    .conteudo {
-      z-index: 1;
+    .chatbox {
       flex: 1;
+      max-width: 960px;
+      height: 100%;
       display: flex;
       flex-direction: column;
+      background-color: #000;
+      border-radius: 10px;
+      z-index: 1;
     }
     .topo {
       display: flex;
@@ -87,9 +89,12 @@
       color: #aaa;
       margin-top: 10px;
     }
-    @media (max-width: 768px) {
-      .sidebar {
+    @media (max-width: 1024px) {
+      .sidebar, .rightbar {
         display: none;
+      }
+      .container {
+        padding: 10px;
       }
     }
   </style>
@@ -110,8 +115,7 @@
   </div>
 
   <div class="container">
-    <div class="overlay"></div>
-    <div class="conteudo">
+    <div class="chatbox">
       <div class="topo">
         <span>💀 Jogo Ativo</span>
         <button onclick="voltar()">Voltar ao Menu</button>
@@ -121,6 +125,18 @@
         Serra Negra 7.0 · Powered by Barbaluss · 
         <a style="color:#ff4c4c" href="https://serra-negra-a-semana-da-sombra.fandom.com/pt-br/wiki/Serra_Negra:_A_Semana_da_Sombra_Wiki" target="_blank">Wiki</a>
       </footer>
+    </div>
+  </div>
+
+  <div class="rightbar">
+    <div>
+      <a href="#">📅 Agenda</a>
+      <a href="#">🕯️ Condições</a>
+      <a href="#">🧠 Habilidades</a>
+    </div>
+    <div>
+      <a href="#">📍 Local</a>
+      <a href="#">📌 Eventos</a>
     </div>
   </div>
 
