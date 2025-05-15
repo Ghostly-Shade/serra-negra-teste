@@ -6,47 +6,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
-      background-color: #0b0b0b;
-      color: #dcdcdc;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
       font-family: 'Cinzel', serif;
+      background: url('background_jogo.jpg') center center / cover no-repeat fixed;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      flex-direction: column;
       overflow: hidden;
+      color: #dcdcdc;
       text-align: center;
+      position: relative;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       color: #ff4c4c;
       text-shadow: 0 0 10px #440000;
-      margin-bottom: 20px;
-      animation: fadeInDown 1.5s ease-out;
+      margin: 0;
     }
 
     .logo {
-      width: 180px;
-      height: 180px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      margin-bottom: 30px;
+      object-fit: cover;
       box-shadow: 0 0 25px #440000;
-      animation: pulse 3s infinite ease-in-out;
     }
 
     button {
-      font-size: 1.5rem;
-      padding: 15px 40px;
+      font-size: 1.3rem;
+      padding: 14px 36px;
       border: 2px solid #ff4c4c;
       background-color: transparent;
       color: #ff4c4c;
       cursor: pointer;
       transition: all 0.3s ease;
       border-radius: 8px;
-      animation: fadeInUp 1.5s ease-out;
     }
 
     button:hover {
@@ -55,158 +70,56 @@
       box-shadow: 0 0 20px #ff4c4c;
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .nevoa, .brasas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .nevoa {
+      background: url('fog_overlay.png') repeat;
+      opacity: 0.03;
+      animation: moverNevoa 100s linear infinite;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.95; }
-      100% { transform: scale(1); opacity: 1; }
+    .brasas::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(rgba(255, 76, 76, 0.25) 2px, transparent 2px),
+        radial-gradient(rgba(255, 76, 76, 0.15) 1.5px, transparent 2px),
+        radial-gradient(rgba(255, 76, 76, 0.1) 1px, transparent 2px);
+      background-size: 6px 6px, 8px 8px, 7px 7px;
+      animation: brasasSubindo 120s linear infinite;
+      opacity: 0.04;
+    }
+
+    @keyframes moverNevoa {
+      from { background-position: 0 0; }
+      to { background-position: -800px 0; }
+    }
+
+    @keyframes brasasSubindo {
+      from { transform: translateY(0); }
+      to { transform: translateY(-1500px); }
     }
   </style>
-
-<style>
-  body {
-    background: url('background_jogo.jpg') center center / cover no-repeat fixed;
-    background-color: #0b0b0b;
-  }
-
-  .nevoa {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background: url('fog_overlay.png') repeat;
-    opacity: 0.08;
-    animation: moverNévoa 120s linear infinite;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  @keyframes moverNévoa {
-    from { background-position: 0 0; }
-    to { background-position: -1000px 0; }
-  }
-
-  body > *:not(.nevoa) {
-    position: relative;
-    z-index: 2;
-  }
-</style>
-<div class="nevoa"></div>
-
-
-<style>
-  body {
-    background: url('background_jogo.jpg') center center / cover no-repeat fixed;
-    overflow: hidden;
-  }
-
-  .brasas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .brasas::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image:
-      radial-gradient(#ff4c4c 2px, transparent 2px),
-      radial-gradient(#ff4c4c 1.5px, transparent 2px),
-      radial-gradient(#ff4c4c 1px, transparent 2px);
-    background-size: 5px 5px, 7px 7px, 6px 6px;
-    animation: brasas-subindo 60s linear infinite;
-    opacity: 0.08;
-  }
-
-  @keyframes brasas-subindo {
-    from { transform: translateY(0); }
-    to { transform: translateY(-2000px); }
-  }
-
-  body > *:not(.nevoa):not(.brasas) {
-    position: relative;
-    z-index: 2;
-  }
-</style>
-<div class="brasas"></div>
-
-
-<style>
-  body {
-    background: url('background_jogo.jpg') center center / cover no-repeat fixed;
-    margin: 0;
-    overflow-x: hidden;
-  }
-
-  .nevoa, .brasas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .nevoa {
-    background: url('fog_overlay.png') repeat;
-    opacity: 0.05;
-    animation: moverNévoa 90s linear infinite;
-  }
-
-  .brasas::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image:
-      radial-gradient(rgba(255, 76, 76, 0.6) 2px, transparent 2px),
-      radial-gradient(rgba(255, 76, 76, 0.4) 1.5px, transparent 2px),
-      radial-gradient(rgba(255, 76, 76, 0.2) 1px, transparent 2px);
-    background-size: 6px 6px, 8px 8px, 7px 7px;
-    animation: brasas-subindo 80s linear infinite;
-    opacity: 0.06;
-  }
-
-  @keyframes moverNévoa {
-    from { background-position: 0 0; }
-    to { background-position: -1000px 0; }
-  }
-
-  @keyframes brasas-subindo {
-    from { transform: translateY(0); }
-    to { transform: translateY(-2000px); }
-  }
-
-  body > *:not(.nevoa):not(.brasas) {
-    position: relative;
-    z-index: 2;
-  }
-</style>
-<div class="nevoa"></div>
-<div class="brasas"></div>
-
 </head>
 <body>
-  <h1>Você tem 7 dias. Sobreviva...<br> ou será engolido pela névoa.</h1>
-  <img src="barbaluss_logo_round.png" alt="Logo Barbaluss" class="logo">
-  <button onclick="invocar()">INVOCAR BARBALUSS</button>
+  <div class="nevoa"></div>
+  <div class="brasas"></div>
+
+  <div class="container">
+    <h1>VOCÊ TEM 7 DIAS. SOBREVIVA...<br> OU SERÁ ENGOLIDO PELA NÉVOA.</h1>
+    <img src="barbaluss_logo_round.png" alt="Logo Barbaluss" class="logo">
+    <button onclick="invocar()">INVOCAR BARBALUSS</button>
+  </div>
 
   <script>
     function invocar() {
