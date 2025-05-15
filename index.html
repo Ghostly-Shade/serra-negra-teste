@@ -5,10 +5,6 @@
   <title>Serra Negra: A Semana da Sombra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
-  <center>
-      <img src="serra_negra_index_final.png" alt="">  
-  </center>
-  
   <style>
     * {
       box-sizing: border-box;
@@ -23,9 +19,12 @@
       overflow: hidden;
       position: relative;
     }
-    img {
-        width: 800px;
-        height: 200px;
+    img.header {
+      width: 800px;
+      height: 200px;
+      display: block;
+      margin: 20px auto 0;
+    }
     .nevoa {
       position: fixed;
       top: 0;
@@ -100,6 +99,8 @@
 </head>
 <body>
 
+  <img src="serra_negra_index_final.png" alt="Cabeçalho" class="header">
+
   <div class="nevoa"></div>
 
   <div class="conteudo">
@@ -116,5 +117,6 @@
       }, 600);
     }
   </script>
+
 </body>
 </html>
