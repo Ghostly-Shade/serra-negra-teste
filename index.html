@@ -51,6 +51,13 @@
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 0 25px #440000;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.95; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     button {
@@ -70,50 +77,27 @@
       box-shadow: 0 0 20px #ff4c4c;
     }
 
-    .nevoa, .brasas {
+    .nevoa {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .nevoa {
       background: url('fog_overlay.png') repeat;
       opacity: 0.03;
       animation: moverNevoa 100s linear infinite;
-    }
-
-    .brasas::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-image:
-        radial-gradient(rgba(255, 76, 76, 0.25) 2px, transparent 2px),
-        radial-gradient(rgba(255, 76, 76, 0.15) 1.5px, transparent 2px),
-        radial-gradient(rgba(255, 76, 76, 0.1) 1px, transparent 2px);
-      background-size: 6px 6px, 8px 8px, 7px 7px;
-      animation: brasasSubindo 120s linear infinite;
-      opacity: 0.04;
+      z-index: 0;
+      pointer-events: none;
     }
 
     @keyframes moverNevoa {
       from { background-position: 0 0; }
       to { background-position: -800px 0; }
     }
-
-    @keyframes brasasSubindo {
-      from { transform: translateY(0); }
-      to { transform: translateY(-1500px); }
-    }
   </style>
 </head>
 <body>
   <div class="nevoa"></div>
-  <div class="brasas"></div>
 
   <div class="container">
     <h1>VOCÊ TEM 7 DIAS. SOBREVIVA...<br> OU SERÁ ENGOLIDO PELA NÉVOA.</h1>
