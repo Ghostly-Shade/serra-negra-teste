@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Serra Negra: A Semana da Sombra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Cinzel', serif;
+      background: url('serra_negra_index_final.png') center center / cover no-repeat fixed;
+      color: #dcdcdc;
+      overflow: hidden;
+      position: relative;
+    }
+    .nevoa {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: url('fog_overlay.png') repeat;
+      opacity: 0.08;
+      animation: moverNevoa 90s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+    @keyframes moverNevoa {
+      from { background-position: 0 0; }
+      to { background-position: -1000px 0; }
+    }
+    .conteudo {
+      z-index: 2;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 2px solid #440000;
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 50px #000;
+    }
+    h1 {
+      font-size: 1.5rem;
+      color: #ff4c4c;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #440000;
+    }
+    .logo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 30px;
+      box-shadow: 0 0 30px #440000;
+      animation: pulse 4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.95; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 14px 36px;
+      border: 2px solid #ff4c4c;
+      background-color: transparent;
+      color: #ff4c4c;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #ff4c4c;
+      color: #0b0b0b;
+      box-shadow: 0 0 20px #ff4c4c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nevoa"></div>
+
+  <div class="conteudo">
+    <h1>VOCÊ TEM 7 DIAS. SOBREVIVA...<br>OU SERÁ ENGOLIDO PELA NÉVOA.</h1>
+    <img src="barbaluss_logo_round.png" alt="Logo Barbaluss" class="logo">
+    <button onclick="invocar()">INVOCAR BARBALUSS</button>
+  </div>
+
+  <script>
+    function invocar() {
+      document.body.style.opacity = "0";
+      setTimeout(() => {
+        window.location.href = "jogo.html";
+      }, 600);
+    }
+  </script>
+</body>
+</html>
