@@ -71,6 +71,38 @@
       100% { transform: scale(1); opacity: 1; }
     }
   </style>
+
+<style>
+  body {
+    background: url('background_jogo.jpg') center center / cover no-repeat fixed;
+    background-color: #0b0b0b;
+  }
+
+  .nevoa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url('fog_overlay.png') repeat;
+    opacity: 0.08;
+    animation: moverNévoa 120s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  @keyframes moverNévoa {
+    from { background-position: 0 0; }
+    to { background-position: -1000px 0; }
+  }
+
+  body > *:not(.nevoa) {
+    position: relative;
+    z-index: 2;
+  }
+</style>
+<div class="nevoa"></div>
+
 </head>
 <body>
   <h1>Você tem 7 dias. Sobreviva...<br> ou será engolido pela névoa.</h1>
