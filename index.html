@@ -71,6 +71,7 @@
       margin-bottom: 30px;
       box-shadow: 0 0 20px #440000;
       animation: pulse 4s ease-in-out infinite;
+      cursor: pointer;
     }
 
     @keyframes pulse {
@@ -115,12 +116,11 @@
 
   <div class="conteudo" style="display:none;">
     <h1>VOCÊ TEM 7 DIAS. SOBREVIVA...<br>OU SERÁ ENGOLIDO PELA NÉVOA.</h1>
-    <img src="barbaluss_logo_round.png" alt="Logo Barbaluss" class="logo">
-    <button onclick="document.getElementById('bgm').play()">🎵 Ativar Som</button>
+    <a href="jogo.html">
+      <img src="barbaluss_logo_round.png" alt="Logo Barbaluss" class="logo">
+    </a>
     <button onclick="invocar()">INVOCAR BARBALUSS</button>
   </div>
-
-  <audio id="bgm" src="audio-tema-placeholder.mp3" loop></audio>
 
   <script>
     function invocar() {
