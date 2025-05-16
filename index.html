@@ -16,7 +16,6 @@
       position: relative;
       color: #dcdcdc;
     }
-
     .nevoa, .nevoa2 {
       position: fixed;
       top: 0;
@@ -26,8 +25,11 @@
       background: url('fog_overlay.png') repeat;
       background-size: 300% auto;
       opacity: 0.15;
-      animation: moverNevoa 60s ease-in-out infinite;
       pointer-events: none;
+    }
+    .nevoa {
+      animation: moverNevoa 60s ease-in-out infinite;
+      z-index: 1;
     }
     .nevoa2 {
       opacity: 0.05;
@@ -45,6 +47,23 @@
       100% { background-position: -1000px 0; }
     }
 
+    .cultista {
+      position: fixed;
+      bottom: 0;
+      width: 480px;
+      opacity: 0.8;
+      z-index: 2;
+      filter: drop-shadow(0 0 12px #ff000033);
+      pointer-events: none;
+    }
+    .cultista.esquerda {
+      left: 2%;
+    }
+    .cultista.direita {
+      right: 2%;
+      transform: scaleX(-1);
+    }
+
     .conteudo {
       z-index: 3;
       position: absolute;
@@ -52,7 +71,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
       width: 600px;
-      height: auto;
       background-color: rgba(0, 0, 0, 0.6);
       border: 2px solid #440000;
       border-radius: 20px;
@@ -138,13 +156,16 @@
   <div class="nevoa"></div>
   <div class="nevoa2"></div>
 
+  <img src="cultista_final.png" class="cultista esquerda" alt="cultista esquerdo">
+  <img src="cultista_final.png" class="cultista direita" alt="cultista direito">
+
   <div class="conteudo">
     <h1>VOCÊ TEM 7 DIAS. SOBREVIVA...<br>OU SERÁ ENGOLIDO PELA NÉVOA.</h1>
     <a href="jogo.html">
       <img src="barbaluss_logo_round.png" alt="Logo Barbaluss" class="logo">
     </a>
     <div class="vela-holder">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Candle_flame_icon.svg/64px-Candle_flame_icon.svg.png" class="vela" alt="Vela animada">
+      <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" class="vela" alt="Vela animada">
       <button onclick="window.location.href='jogo.html'">INVOCAR BARBALUSS</button>
     </div>
   </div>
