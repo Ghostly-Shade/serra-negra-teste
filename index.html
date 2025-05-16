@@ -25,7 +25,7 @@
       background: url('fog_overlay.png') repeat;
       opacity: 0.1;
       animation: moverNevoa 30s linear infinite;
-      z-index: 0;
+      z-index: 1;
       pointer-events: none;
     }
     @keyframes moverNevoa {
@@ -34,21 +34,22 @@
     }
     .sombra {
       position: fixed;
-      bottom: 10%;
-      width: 320px;
-      opacity: 0.2;
-      z-index: 1;
+      bottom: 8%;
+      width: 300px;
+      opacity: 0.8;
+      z-index: 2;
       pointer-events: none;
+      filter: drop-shadow(0 0 10px #ff000040);
     }
     .sombra.esquerda {
-      left: 5%;
+      left: 4%;
     }
     .sombra.direita {
-      right: 5%;
+      right: 4%;
       transform: scaleX(-1);
     }
     .conteudo {
-      z-index: 2;
+      z-index: 3;
       position: absolute;
       top: 50%;
       left: 50%;
