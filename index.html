@@ -12,9 +12,9 @@
       height: 100%;
       font-family: 'Cinzel', serif;
       background-color: #0b0b0b;
-      color: #dcdcdc;
       overflow: hidden;
       position: relative;
+      color: #dcdcdc;
     }
     .nevoa {
       position: fixed;
@@ -26,25 +26,24 @@
       opacity: 0.1;
       animation: moverNevoa 30s linear infinite;
       z-index: 1;
-      pointer-events: none;
     }
     @keyframes moverNevoa {
       from { background-position: 0 0; }
       to { background-position: -1000px 0; }
     }
-    .sombra {
+    .cultista {
       position: fixed;
-      bottom: 8%;
-      width: 300px;
+      bottom: 5%;
+      width: 280px;
       opacity: 0.8;
       z-index: 2;
+      filter: drop-shadow(0 0 12px #ff000033);
       pointer-events: none;
-      filter: drop-shadow(0 0 10px #ff000040);
     }
-    .sombra.esquerda {
+    .cultista.esquerda {
       left: 4%;
     }
-    .sombra.direita {
+    .cultista.direita {
       right: 4%;
       transform: scaleX(-1);
     }
@@ -102,8 +101,8 @@
 <body>
 
   <div class="nevoa"></div>
-  <img src="silhueta_cultista.png" class="sombra esquerda" alt="silhueta esquerda">
-  <img src="silhueta_cultista.png" class="sombra direita" alt="silhueta direita">
+  <img src="cultista_final.png" class="cultista esquerda" alt="cultista esquerdo">
+  <img src="cultista_final.png" class="cultista direita" alt="cultista direito">
 
   <div class="conteudo">
     <h1>VOCÊ TEM 7 DIAS. SOBREVIVA...<br>OU SERÁ ENGOLIDO PELA NÉVOA.</h1>
